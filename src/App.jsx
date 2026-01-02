@@ -607,20 +607,22 @@ function TeamSection({ darkMode }) {
       socials: {
         facebook: "https://m.me/victor.aremo.35",
         website: "https://easylink-beryl.vercel.app",
-        linkedin: "https://www.linkedin.com/in/victor-oluwaseun-aremo-ba9581356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        instagram: "https://www.instagram.com/itsbigvic5?utm_source=qr&igsh=am44OHFmYXM4azJ1",
-      }
+        linkedin:
+          "https://www.linkedin.com/in/victor-oluwaseun-aremo-ba9581356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        instagram:
+          "https://www.instagram.com/itsbigvic5?utm_source=qr&igsh=am44OHFmYXM4azJ1",
+      },
     },
     {
       name: "Muhammed Cham",
-      title: "Co Founder & COO",
+      title: "Co Founder & CTO",
       image: "/src/assets/images/Cham.jpg",
       socials: {
         facebook: "https://www.facebook.com/profile.php?id=100072271521254",
         website: "https://my-dev-portfolio-fz8x.vercel.app/",
         linkedin: "https://www.linkedin.com/in/muhammed-cham-53a976347/",
         instagram: "http://instagram.com/muhammadcham23/",
-      }
+      },
     },
     {
       name: "Gibril Suwareh",
@@ -631,18 +633,18 @@ function TeamSection({ darkMode }) {
         website: "https://twitter.com/victor",
         linkedin: "https://linkedin.com/in/victor",
         instagram: "https://instagram.com/victor",
-      }
+      },
     },
     {
       name: "Modou Lamin Ceesay",
-      title: "Co Founder & CTO / Lead Developer",
+      title: "Co Founder &  Lead Developer",
       image: "/src/assets/images/Modou.jpg",
       socials: {
         facebook: "https://www.facebook.com/lily.champion.58",
         website: "https://my-dev-portfolio-dun.vercel.app/",
         linkedin: "https://www.linkedin.com/in/modou-lamin-ceesay-b8b810321/",
         instagram: "https://www.instagram.com/tee_wizzy99/",
-      }
+      },
     },
   ];
 
