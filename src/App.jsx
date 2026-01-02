@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import sefynaLogo from "/src/assets/images/sefyna-logo.png";
-
+import easyRideLogo from "/src/assets/images/easy-ride-logo.png";
+import khadijaLogo from "/src/assets/images/khadija-logo.png";
+import seySoweLogo from "/src/assets/images/seysowe-logo.png";
 
 
 export default function App() {
@@ -28,7 +30,7 @@ export default function App() {
 
           <div className="hidden md:flex items-center gap-6 ml-auto">
             <ul className="flex gap-8 text-sm">
-            {["Home", "Services", "Projects", "About"].map((item) => (
+            {["Home", "About Us", "Services", "Projects",].map((item) => (
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
@@ -102,7 +104,7 @@ export default function App() {
               <li className="mb-8 mt-4">
                 <a
                   href="#contact"
-                  className="px-6 py-3 bg-cyan-400 text-black font-semibold rounded-full hover:bg-cyan-300 transition"
+                  className="px-6 py-3 bg-cyan-400 text-black  rounded-full hover:bg-cyan-300 transition"
                 >
                   Contact Us
                 </a>
@@ -129,9 +131,13 @@ export default function App() {
             </p>
 
             <div className="mt-8 flex gap-4">
-              <button className="px-6 py-3 bg-cyan-500 text-black font-semibold rounded-full hover:bg-cyan-400 transition">
+              <a
+                href="#contact"
+                className="inline-block px-6 py-3 bg-cyan-500 text-black font-semibold rounded-full hover:bg-cyan-400 transition"
+              >
                 Get Started
-              </button>
+              </a>
+
               {/* <button className="px-6 py-3 border border-cyan-400 text-cyan-400 rounded-full hover:bg-cyan-400 hover:text-black transition">
                 View Work
               </button> */}
@@ -142,7 +148,7 @@ export default function App() {
           <div className="relative">
             <div className="absolute inset-0 bg-cyan-400 blur-3xl opacity-20 rounded-full"></div>
             <img
-              src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5"
+              src="/src/assets/images/ai-hero.jpg"
               alt="hero"
               className="relative rounded-xl shadow-xl"
             />
@@ -150,6 +156,7 @@ export default function App() {
         </div>
       </section>
 
+      {/* BAR */}
       <div className="h-[2px] w-[40%] max-w-xs bg-cyan-600 mx-auto mt-5 opacity-60" />
 
       {/* ABOUT US */}
@@ -169,25 +176,27 @@ export default function App() {
           <div>
             <h3 className="text-xl font-semibold mb-3 text-cyan-400">OUR STORY</h3>
             <p className="opacity-80 leading-relaxed">
-              TRIFORGE started with a simple belief: great digital experiences shouldn’t be complicated.
-              What began as a passion for design and development grew into a mission to build clean,
-              scalable, and meaningful digital products.
+              TRIFORGE was born from a simple belief: great digital experiences shouldn’t be complicated.
+              What started as a passion for design and development became a mission to build clean,
+              meaningful, and scalable products. Guided by the tireless mentorship of <span className="text-cyan-400 font-bold">Omar Jasseh, Founder & Instructor at JCC</span>, we were pushed to grow, believe, and excel — shaping who we are today.
             </p>
           </div>
 
           <div>
             <h3 className="text-xl font-semibold mb-3 text-cyan-400">OUR APPROACH</h3>
             <p className="opacity-80 leading-relaxed">
-              We fuse creativity, technology, and strategy to create solutions that are clear,
-              performant, and built for long-term impact.
+              We fuse creativity, technology, and strategy to craft digital solutions that are thoughtful,
+              high-performing, and built for long-term impact. Every project is guided by clarity,
+              innovation, and a deep focus on solving real-world problems.
             </p>
           </div>
 
           <div>
             <h3 className="text-xl font-semibold mb-3 text-cyan-400">OUR GOAL</h3>
             <p className="opacity-80 leading-relaxed">
-              Our goal is to help ideas become reality through thoughtful design and modern development.
-              We don’t just build products — we forge digital experiences that last.
+              Our goal is to turn ideas into reality through thoughtful design and modern development.
+              We don’t just build products — we forge digital experiences that are purposeful,
+              impactful, and built to stand the test of time.
             </p>
           </div>
 
@@ -201,21 +210,46 @@ export default function App() {
         }`}
       >
         <div className="max-w-7xl mx-auto">
-          <h3 className=" text-3xl font-bold mb-12 text-center">
-            What We Do
-          </h3>
+          <div className="mb-16 text-center mx-auto md:col-span-3">
+            <p className="text-l uppercase tracking-widest text-cyan-400 mb-2">
+              What We Do
+            </p>
+
+            <h3 className="text-3xl md:text-4xl font-bold leading-tight">
+              Designing, Building & <span className="text-cyan-400">Scaling Digital Solutions</span>
+            </h3>
+          </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              "Web Development",
-              "Software Systems",
-              "UI / UX Design",
-              "Web Applications",
-              "Automation",
-              "Tech Consulting",
+              {
+                title: "Web Development",
+                desc: "Modern, responsive websites built for speed and reliability.",
+              },
+              {
+                title: "Software Systems",
+                desc: "Robust systems designed to streamline and scale operations.",
+              },
+
+              {
+                title: "Web Applications",
+                desc: "Powerful web apps tailored to solve real business problems.",
+              },
+              {
+                title: "Digital Solutions",
+                desc: "Custom digital tools built to solve real business problems.",
+              },
+              {
+                title: "System Maintenance & Support",
+                desc: "Ongoing technical support to keep systems secure, stable, and up to date.",
+              },
+              {
+                title: "Hosting & Deployment Management",
+                desc: "Secure, reliable hosting with smooth deployments to keep your systems fast and online.",
+              },
             ].map((service) => (
               <div
-                key={service}
+                key={service.title}
                 className={`p-6 rounded-xl border transition ${
                   darkMode
                     ? "bg-[#0b0f1a] border-white/10 hover:border-cyan-400"
@@ -223,10 +257,10 @@ export default function App() {
                 }`}
               >
                 <h4 className="text-lg font-semibold mb-3">
-                  {service}
+                  {service.title}
                 </h4>
                 <p className="text-sm opacity-70">
-                  Clean, scalable, high-performance solutions.
+                  {service.desc}
                 </p>
               </div>
             ))}
@@ -339,22 +373,22 @@ export default function App() {
             </div>
             <div className="h-24 flex items-center justify-center">
               <img
-                src={sefynaLogo}
-                alt="Sefyna Mart"
+                src={easyRideLogo}
+                alt="Esay Ride Rental"
                 className="max-h-20 max-w-[150px]"
               />
             </div>
             <div className="h-24 flex items-center justify-center">
               <img
-                src={sefynaLogo}
-                alt="Sefyna Mart"
+                src={khadijaLogo}
+                alt="Khadija's Mini Market"
                 className="max-h-20 max-w-[150px]"
               />
             </div>
             <div className="h-24 flex items-center justify-center">
               <img
-                src={sefynaLogo}
-                alt="Sefyna Mart"
+                src={seySoweLogo}
+                alt="Seysowe Branding Collection"
                 className="max-h-20 max-w-[150px]"
               />
             </div>
@@ -440,7 +474,7 @@ export default function App() {
       </section>
 
       {/* TEAM SECTION */}
-      <TeamSection darkMode={darkMode} />
+      <TeamSection darkMode={darkMode} /> 
 
       {/* CTA */}
       <section
@@ -467,10 +501,10 @@ export default function App() {
             </p>
 
             <p className="max-w-md leading-relaxed">
-              <a href="tel:+2207721900">Tel: <span className="text-cyan-400">+220 772 1900</span></a><br/>
-              <a href="tel:+2205886147">Tel: <span className="text-cyan-400">+220 588 6147</span></a><br/>
-              <a href="tel:+2203777194">Tel: <span className="text-cyan-400">+220 377 7194</span></a><br/>
-              <a href="tel:+2205296007">Tel: <span className="text-cyan-400">+220 529 6007</span></a><br/>
+              <a href="tel:+2207721900">Tel 📞: <span className="text-cyan-400"><span className="hover:underline">+220 772 1900</span></span></a><br/>
+              <a href="tel:+2205886147">Tel 📞: <span className="text-cyan-400"><span className="hover:underline">+220 588 6147</span></span></a><br/>
+              <a href="tel:+2203777194">Tel 📞: <span className="text-cyan-400"><span className="hover:underline">+220 377 7194</span></span></a><br/>
+              <a href="tel:+2205296007">Tel 📞: <span className="text-cyan-400"><span className="hover:underline">+220 529 6007</span></span></a><br/>
             </p>
           </div>
 
@@ -485,7 +519,7 @@ export default function App() {
             <div className="grid gap-6">
               <input
                 type="text"
-                placeholder="Your Name"
+                placeholder="Your Name (required)"
                 className={`w-full px-4 py-3 rounded-[15px] outline-none transition ${
                   darkMode
                     ? "bg-[#0b0f1a] text-white placeholder-gray-400 border border-white/10 focus:border-cyan-400"
@@ -495,7 +529,7 @@ export default function App() {
 
               <input
                 type="email"
-                placeholder="Email Address"
+                placeholder="Email Address (required)"
                 className={`w-full px-4 py-3 rounded-[15px] outline-none transition ${
                   darkMode
                     ? "bg-[#0b0f1a] text-white placeholder-gray-400 border border-white/10 focus:border-cyan-400"
@@ -544,13 +578,13 @@ export default function App() {
 
           {/* RIGHT */}
           <ul className="flex gap-6 text-sm md:justify-self-end">
-            {["About", "Services", "Projects", "Contact"].map((item) => (
+            {["About Us", "Services", "Projects", "Contact Us"].map((item) => (
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
                   className="hover:text-cyan-400 transition"
                 >
-                  {item}
+                  {item} 
                 </a>
               </li>
             ))}
@@ -568,23 +602,47 @@ function TeamSection({ darkMode }) {
   const teamMembers = [
     {
       name: "Victor Aremo",
-      title: "Chief Executive Officer",
-      image: "/src/assets/images/profilephoto.jpg",
+      title: "Co Founder & CEO",
+      image: "/src/assets/images/Victor.jpg",
+      socials: {
+        facebook: "https://m.me/victor.aremo.35",
+        website: "https://easylink-beryl.vercel.app",
+        linkedin: "https://www.linkedin.com/in/victor-oluwaseun-aremo-ba9581356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        instagram: "https://www.instagram.com/itsbigvic5?utm_source=qr&igsh=am44OHFmYXM4azJ1",
+      }
     },
     {
       name: "Muhammed Cham",
-      title: "Chief Technology Officer",
-      image: "/src/assets/images/profilephoto.jpg",
+      title: "Co Founder & COO",
+      image: "/src/assets/images/Cham.jpg",
+      socials: {
+        facebook: "https://www.facebook.com/profile.php?id=100072271521254",
+        website: "https://my-dev-portfolio-fz8x.vercel.app/",
+        linkedin: "https://www.linkedin.com/in/muhammed-cham-53a976347/",
+        instagram: "http://instagram.com/muhammadcham23/",
+      }
     },
     {
       name: "Gibril Suwareh",
-      title: "IT Project Manager",
-      image: "/src/assets/images/profilephoto.jpg",
+      title: "Co Founder & Operations Lead",
+      image: "/src/assets/images/Gibril.jpg",
+      socials: {
+        facebook: "https://facebook.com/victor",
+        website: "https://twitter.com/victor",
+        linkedin: "https://linkedin.com/in/victor",
+        instagram: "https://instagram.com/victor",
+      }
     },
     {
       name: "Modou Lamin Ceesay",
-      title: "Lead Developer",
-      image: "/src/assets/images/profilephoto.jpg",
+      title: "Co Founder & CTO / Lead Developer",
+      image: "/src/assets/images/Modou.jpg",
+      socials: {
+        facebook: "https://www.facebook.com/lily.champion.58",
+        website: "https://my-dev-portfolio-dun.vercel.app/",
+        linkedin: "https://www.linkedin.com/in/modou-lamin-ceesay-b8b810321/",
+        instagram: "https://www.instagram.com/tee_wizzy99/",
+      }
     },
   ];
 
@@ -622,22 +680,35 @@ function TeamCard({ member, isActive, darkMode }) {
   const [showSocial, setShowSocial] = useState(false);
 
   const socialIcons = [
-    { name: 'facebook', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
-    { name: 'twitter', path: 'M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z' },
-    { name: 'linkedin', path: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' },
-    { name: 'instagram', path: 'M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zm1.5-4.87h.01 M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z' }
+    {
+      name: "facebook",
+      path: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z",
+    },
+    {
+      name: "website",
+      path: "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 0c2.5 2.7 4 6.1 4 10s-1.5 7.3-4 10m0-20c-2.5 2.7-4 6.1-4 10s1.5 7.3 4 10m-8-10h16",
+    },
+    {
+      name: "linkedin",
+      path: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z",
+    },
+    {
+      name: "instagram",
+      path: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zm1.5-4.87h.01 M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z",
+    },
   ];
 
   return (
-    <div className={`rounded-[15px] overflow-hidden border transition-all duration-300 sm:rounded-[15px]
- ${
-      darkMode 
-        ? "bg-[#0b0f1a] border-white/10 hover:border-cyan-400" 
-        : "bg-gray-100 border-black/10 hover:border-cyan-500"
-    } ${isActive ? 'scale-105 shadow-2xl' : 'shadow-lg'}`}>
+    <div
+      className={`rounded-[15px] overflow-hidden border transition-all mb-5 duration-300 ${
+        darkMode
+          ? "bg-[#0b0f1a] border-white/10 hover:border-cyan-400"
+          : "bg-gray-100 border-black/10 hover:border-cyan-500"
+      } ${isActive ? "scale-105 shadow-2xl" : "shadow-lg"}`}
+    >
       {/* Image Container */}
-      <div 
-        className="relative h-80 sm:h-72 lg:h-80 overflow-hidden bg-gray-200"
+      <div
+        className="relative aspect-[4/5] sm:aspect-[3/4] lg:h-80 lg:aspect-auto overflow-hidden bg-gray-200"
         onMouseEnter={() => setShowSocial(true)}
         onMouseLeave={() => setShowSocial(false)}
       >
@@ -646,33 +717,59 @@ function TeamCard({ member, isActive, darkMode }) {
           alt={member.name}
           className="w-full h-full object-cover"
         />
+
         {/* Social Icons Overlay */}
-        <div className={`absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 transition-opacity duration-300 ${
-          showSocial ? 'opacity-100' : 'opacity-0'
-        }`}>
-          {socialIcons.map((icon) => (
-            <a
-              key={icon.name}
-              href="#"
-              className={`p-2.5 rounded-full backdrop-blur-sm transition-all duration-200 ${
-                darkMode 
-                  ? "bg-[#0b0f1a]/80 hover:bg-cyan-400 text-white hover:text-black border border-white/20" 
-                  : "bg-white/80 hover:bg-cyan-500 text-gray-700 hover:text-white"
-              }`}
-              onClick={(e) => e.preventDefault()}
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                <path d={icon.path} />
-              </svg>
-            </a>
-          ))}
+        <div
+          className={`absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 transition-opacity duration-300 ${
+            showSocial ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {socialIcons.map((icon) => {
+            const url = member.socials?.[icon.name];
+            if (!url) return null;
+
+            return (
+              <a
+                key={icon.name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={icon.name}
+                className={`p-2.5 rounded-full backdrop-blur-sm transition-all duration-200 ${
+                  darkMode
+                    ? "bg-[#0b0f1a]/80 hover:bg-cyan-400 text-white hover:text-black border border-white/20"
+                    : "bg-white/80 hover:bg-cyan-500 text-gray-700 hover:text-white"
+                }`}
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
+                >
+                  <path d={icon.path} />
+                </svg>
+              </a>
+            );
+          })}
         </div>
       </div>
 
       {/* Content */}
       <div className="p-6 text-center">
-        <h4 className="text-xl sm:text-2xl font-bold mb-2">{member.name}</h4>
-        <p className={`text-sm sm:text-base ${darkMode ? "text-gray-400" : "text-gray-600"}`}>{member.title}</p>
+        <h4 className="text-xl sm:text-2xl font-bold mb-2">
+          {member.name}
+        </h4>
+        <p
+          className={`text-sm sm:text-base ${
+            darkMode ? "text-gray-400" : "text-gray-600"
+          }`}
+        >
+          {member.title}
+        </p>
         <div className="mt-4 h-1 w-16 bg-cyan-400 mx-auto rounded-full"></div>
       </div>
     </div>
