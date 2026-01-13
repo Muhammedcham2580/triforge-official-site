@@ -121,8 +121,8 @@ export default function App() {
           <div>
             <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
               We Build{" "}
-              <span className="text-cyan-400">Modern</span> <br />
-              Digital Products
+              <span className="text-cyan-400">Modern </span> <br /> <span className="text-cyan-400">Digital </span>
+               Products
             </h2>
 
             <p className="mt-6 opacity-70 max-w-md">
@@ -147,8 +147,12 @@ export default function App() {
 
           <div className="relative">
             <div className="absolute inset-0 bg-cyan-400 blur-3xl opacity-20 rounded-full"></div>
-            <img
-              src="/src/assets/images/ai-hero.jpg"
+            <video
+              loop
+              muted
+              autoPlay
+              playsInline
+              src="/src/assets/images/hero-video.mp4"
               alt="hero"
               className="relative rounded-xl shadow-xl"
             />
@@ -160,7 +164,7 @@ export default function App() {
       <div className="h-[2px] w-[40%] max-w-xs bg-cyan-600 mx-auto mt-5 opacity-60" />
 
       {/* ABOUT US */}
-      <section id="about" className="py-20 px-6">
+      <section id="about us" className="py-20 px-6">
 
         <div className="mb-16 text-center mx-auto md:col-span-3">
           <p className="text-l uppercase tracking-widest text-cyan-400 mb-2">
@@ -282,28 +286,28 @@ export default function App() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "Enterprise Web Platform",
-                desc: "Built for performance and scale.",
-                image: "https://images.unsplash.com/photo-1605379399642-870262d3d051",
+                title: "Easy Ride Rentals",
+                desc: "A professional Car Rental service in The Gambia.",
+                image: "/src/assets/images/easy-ride.png",
               },
               {
-                title: "E-Commerce Website",
-                desc: "Modern online store with secure payments.",
-                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+                title: "Seysowe Branding Collection",
+                desc: "A thoughtfully crafted branding collection inspired by modern femininity and timeless elegance.",
+                image: "/src/assets/images/seysowe-brand.jpeg",
               },
               {
-                title: "Sefyna Mart POS",
+                title: "Sefyna Mart POS System",
                 desc: "Data-driven admin dashboard.",
                 image: "/src/assets/images/sefyna.png",
               },
               {
-                title: "Mobile Banking App",
-                desc: "Secure and intuitive financial app.",
-                image: "https://images.unsplash.com/photo-1556155092-490a1ba16284",
+                title: "My Farm Website",
+                desc: "A farm-fresh collection of quality fruits and vegetables grown with care.",
+                image: "/src/assets/images/farm-products.jpeg",
               },
               {
                 title: "Espace Motors Website",
-                desc: "Decent Auto Dealership.",
+                desc: "Espace Motors is a leading car dealership in The Gambia, delivering quality vehicles you can trust..",
                 image: "/src/assets/images/espace.png",
               },
               {
@@ -510,6 +514,7 @@ export default function App() {
 
           {/* CONTACT FORM */}
           <form
+          
             className={`p-8 rounded-[20px] border ${
               darkMode
                 ? "bg-[#0f1525] border-white/10"
@@ -626,7 +631,7 @@ function TeamSection({ darkMode }) {
     },
     {
       name: "Gibril Suwareh",
-      title: "Co Founder & Operations Lead",
+      title: "Co Founder & Operations Manager",
       image: "/src/assets/images/Gibril.jpg",
       socials: {
         facebook: "https://facebook.com/victor",
