@@ -152,7 +152,7 @@ export default function App() {
               muted
               autoPlay
               playsInline
-              src="/src/assets/images/hero-video.mp4"
+              src="/src/assets/images/hero-video2.mp4"
               alt="hero"
               className="relative rounded-xl shadow-xl"
             />
@@ -236,8 +236,8 @@ export default function App() {
               },
 
               {
-                title: "Web Applications",
-                desc: "Powerful web apps tailored to solve real business problems.",
+                title: "Web & Mobile Applications",
+                desc: "Powerful apps tailored to solve real business problems.",
               },
               {
                 title: "Digital Solutions",
@@ -283,46 +283,42 @@ export default function App() {
           </h3>
 
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
             {[
               {
                 title: "Easy Ride Rentals",
                 desc: "A professional Car Rental service in The Gambia.",
                 image: "/src/assets/images/easy-ride.png",
+                url: "https://easy-riderental.com/",
               },
               {
                 title: "Seysowe Branding Collection",
                 desc: "A thoughtfully crafted branding collection inspired by modern femininity and timeless elegance.",
                 image: "/src/assets/images/seysowe-brand.jpeg",
+                url: "#",
               },
               {
                 title: "Sefyna Mart POS System",
                 desc: "Data-driven admin dashboard.",
                 image: "/src/assets/images/sefyna.png",
-              },
-              {
-                title: "My Farm Website",
-                desc: "A farm-fresh collection of quality fruits and vegetables grown with care.",
-                image: "/src/assets/images/farm-products.jpeg",
+                url: "#",
               },
               {
                 title: "Espace Motors Website",
                 desc: "Espace Motors is a leading car dealership in The Gambia, delivering quality vehicles you can trust..",
                 image: "/src/assets/images/espace.png",
-              },
-              {
-                title: "Portfolio Website",
-                desc: "Personal branding and showcase platform.",
-                image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+                url: "#",
               },
             ].map((project, i) => (
               <div
                 key={i}
+                onClick={() => window.open(project.url, '_blank')}
                 className={`group rounded-[15px] overflow-hidden border transition ${
                   darkMode
                     ? "border-white/10 hover:border-cyan-400"
                     : "border-black/10 hover:border-cyan-500"
                 }`}
+                
               >
                 <img
                   src={project.image}
@@ -519,11 +515,18 @@ export default function App() {
               darkMode
                 ? "bg-[#0f1525] border-white/10"
                 : "bg-white border-black/10"
-            }`}
+            }`} 
+            action="https://formly.email/submit"
+            method="post"
+            encType="application/x-www-form-urlencoded"
           >
+            <input type="hidden" name="access_key" value="9627f94e64ff407798885fe5b0cfb706"></input>
+            <input type="hidden" name="redirect" value="http://localhost:5173"></input>
             <div className="grid gap-6">
               <input
                 type="text"
+                name="name"
+                required
                 placeholder="Your Name (required)"
                 className={`w-full px-4 py-3 rounded-[15px] outline-none transition ${
                   darkMode
@@ -534,6 +537,8 @@ export default function App() {
 
               <input
                 type="email"
+                name="email"
+                required
                 placeholder="Email Address (required)"
                 className={`w-full px-4 py-3 rounded-[15px] outline-none transition ${
                   darkMode
@@ -544,6 +549,8 @@ export default function App() {
 
               <textarea
                 rows="4"
+                name="message"
+                required
                 placeholder="Tell us about your project..."
                 className={`w-full px-4 py-3 rounded-[15px] outline-none resize-none transition ${
                   darkMode
