@@ -1,13 +1,38 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import sefynaLogo from "/src/assets/images/sefyna-logo.png";
 import easyRideLogo from "/src/assets/images/easy-ride-logo.png";
 import khadijaLogo from "/src/assets/images/khadija-logo.png";
 import seySoweLogo from "/src/assets/images/seysowe-logo.png";
+import heroVideo from "/src/assets/images/hero-video2.mp4";
+
 
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
+  const menuRef = useRef(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuOpen]);
+
+  // Function to close menu when link is clicked
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <div id="home"
@@ -17,6 +42,7 @@ export default function App() {
     >
       {/* NAVBAR */}
       <nav
+        ref={menuRef}
         className={`fixed top-0 left-0 w-full z-50 backdrop-blur border-b ${
           darkMode
             ? "bg-[#0b0f1a]/90 border-white/10"
@@ -30,7 +56,7 @@ export default function App() {
 
           <div className="hidden md:flex items-center gap-6 ml-auto">
             <ul className="flex gap-8 text-sm">
-            {["Home", "About Us", "Services", "Projects",].map((item) => (
+            {["Home", "About", "Services", "Projects",].map((item) => (
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
@@ -94,6 +120,7 @@ export default function App() {
                   <a
                     href={`#${item.toLowerCase()}`}
                     className="hover:text-cyan-400 transition"
+                    onClick={handleLinkClick}
                   >
                     {item}
                   </a>
@@ -105,6 +132,7 @@ export default function App() {
                 <a
                   href="#contact"
                   className="px-6 py-3 bg-cyan-400 text-black  rounded-full hover:bg-cyan-300 transition"
+                  onClick={handleLinkClick}
                 >
                   Contact Us
                 </a>
@@ -152,7 +180,7 @@ export default function App() {
               muted
               autoPlay
               playsInline
-              src="/src/assets/images/hero-video2.mp4"
+              src={heroVideo}
               alt="hero"
               className="relative rounded-xl shadow-xl"
             />
@@ -164,7 +192,7 @@ export default function App() {
       <div className="h-[2px] w-[40%] max-w-xs bg-cyan-600 mx-auto mt-5 opacity-60" />
 
       {/* ABOUT US */}
-      <section id="about us" className="py-20 px-6">
+      <section id="about" className="py-20 px-6">
 
         <div className="mb-16 text-center mx-auto md:col-span-3">
           <p className="text-l uppercase tracking-widest text-cyan-400 mb-2">
@@ -180,7 +208,7 @@ export default function App() {
           <div>
             <h3 className="text-xl font-semibold mb-3 text-cyan-400">OUR STORY</h3>
             <p className="opacity-80 leading-relaxed">
-              TRIFORGE was born from a simple belief: great digital experiences shouldn’t be complicated.
+              TRIFORGE was born from a simple belief: great digital experiences shouldn't be complicated.
               What started as a passion for design and development became a mission to build clean,
               meaningful, and scalable products. Guided by the tireless mentorship of <span className="text-cyan-400 font-bold">Omar Jasseh, Founder & Instructor at JCC</span>, we were pushed to grow, believe, and excel — shaping who we are today.
             </p>
@@ -199,7 +227,7 @@ export default function App() {
             <h3 className="text-xl font-semibold mb-3 text-cyan-400">OUR GOAL</h3>
             <p className="opacity-80 leading-relaxed">
               Our goal is to turn ideas into reality through thoughtful design and modern development.
-              We don’t just build products — we forge digital experiences that are purposeful,
+              We don't just build products — we forge digital experiences that are purposeful,
               impactful, and built to stand the test of time.
             </p>
           </div>
@@ -279,34 +307,34 @@ export default function App() {
             RECENT PROJECTS
           </p>
           <h3 className="text-3xl font-bold mb-8 text-center max-w-3xl mx-auto">
-            A glimpse into some of the <span className="text-cyan-400">digital solutions we’ve crafted with care and precision.</span>
+            A glimpse into some of the <span className="text-cyan-400">digital solutions we've crafted with care and precision.</span>
           </h3>
 
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2 hover:cursor-pointer">
             {[
               {
                 title: "Easy Ride Rentals",
                 desc: "A professional Car Rental service in The Gambia.",
-                image: "/src/assets/images/easy-ride.png",
+                image: "/public/easy-ride.png",
                 url: "https://easy-riderental.com/",
               },
               {
                 title: "Seysowe Branding Collection",
                 desc: "A thoughtfully crafted branding collection inspired by modern femininity and timeless elegance.",
-                image: "/src/assets/images/seysowe-brand.jpeg",
+                image: "/public/seysowe-brand.jpeg",
                 url: "#",
               },
               {
                 title: "Sefyna Mart POS System",
                 desc: "Data-driven admin dashboard.",
-                image: "/src/assets/images/sefyna.png",
-                url: "#",
+                image: "/public/sefyna.png",
+                url: "https://triforge-pos-sefyna.netlify.app/",
               },
               {
                 title: "Espace Motors Website",
                 desc: "Espace Motors is a leading car dealership in The Gambia, delivering quality vehicles you can trust..",
-                image: "/src/assets/images/espace.png",
+                image: "/public/espace.png",
                 url: "#",
               },
             ].map((project, i) => (
@@ -358,7 +386,7 @@ export default function App() {
 
           {/* Description */}
           <p className="max-w-2xl mx-auto text-l sm:text-base opacity-70 mb-14">
-            We’ve partnered with ambitious brands across different industries,
+            We've partnered with ambitious brands across different industries,
             helping them build reliable, scalable, and impactful digital solutions.
           </p>
 
@@ -398,7 +426,7 @@ export default function App() {
 
       {/* TESTIMONIALS */}
       <section
-        className={`py-20 px-6 ${
+        className={`py-15 px-6 ${
           darkMode ? "bg-[#0f1525]" : "bg-white"
         }`}
       >
@@ -417,11 +445,11 @@ export default function App() {
                 name: "Serra Bah",
                 role: "Founder & CEO of Sefyna Mart",
                 text: "Their professionalism and attention to detail exceeded our expectations. Everything was delivered perfectly and on time.",
-                image: "/src/assets/images/serra-bah.png",
+                image: "/public/serra-bah.png",
               },
               {
                 name: "Khadija",
-                role: "Founder Khadija's MiniMarket",
+                role: "Founder of Khadija's MiniMarket",
                 text: "Outstanding communication and execution. I would absolutely recommend TRIFORGE for serious, scalable projects.",
                 image: "https://i.pravatar.cc/100?img=5",
               },
@@ -436,7 +464,7 @@ export default function App() {
               >
                 {/* Stars */}
                 <div className="flex items-center gap-2 text-yellow-400 mb-4">
-                  ★★★★★ <span className="text-sm text-white">5.0</span>
+                  ★★★★ <span className="text-sm text-white">4.5</span>
                 </div>
 
                 <h4 className="text-xl font-semibold mb-3">
@@ -468,7 +496,6 @@ export default function App() {
           <div className="flex justify-center gap-2 mt-10">
             <span className="w-8 h-2 bg-cyan-400 rounded-full"></span>
             <span className="w-2 h-2 bg-white/30 rounded-full"></span>
-            <span className="w-2 h-2 bg-white/30 rounded-full"></span>
           </div>
         </div>
       </section>
@@ -492,11 +519,11 @@ export default function App() {
             </p>
 
             <h3 className="text-3xl sm:text-4xl font-bold mb-6">
-              Let’s Build <span className="text-cyan-400">Something Powerful</span>
+              Let's Build <span className="text-cyan-400">Something Powerful</span>
             </h3>
 
             <p className="opacity-70 max-w-md leading-relaxed mb-5">
-              Have an idea, a project, or a challenge you’d like help with? Give a call or 
+              Have an idea, a project, or a challenge you'd like help with? Give a call or 
               fill out the form and our team will get back to you shortly.
             </p>
 
@@ -590,7 +617,7 @@ export default function App() {
 
           {/* RIGHT */}
           <ul className="flex gap-6 text-sm md:justify-self-end">
-            {["About Us", "Services", "Projects", "Contact Us"].map((item) => (
+            {["About", "Services", "Projects", "Contact Us"].map((item) => (
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
@@ -615,7 +642,7 @@ function TeamSection({ darkMode }) {
     {
       name: "Victor Aremo",
       title: "Co Founder & CEO",
-      image: "/src/assets/images/Victor.jpg",
+      image: "/public/Victor.jpg",
       socials: {
         facebook: "https://m.me/victor.aremo.35",
         website: "https://easylink-beryl.vercel.app",
@@ -628,7 +655,7 @@ function TeamSection({ darkMode }) {
     {
       name: "Muhammed Cham",
       title: "Co Founder & CTO",
-      image: "/src/assets/images/Cham.jpg",
+      image: "/public/Cham.jpg",
       socials: {
         facebook: "https://www.facebook.com/profile.php?id=100072271521254",
         website: "https://my-dev-portfolio-fz8x.vercel.app/",
@@ -639,7 +666,7 @@ function TeamSection({ darkMode }) {
     {
       name: "Gibril Suwareh",
       title: "Co Founder & Operations Manager",
-      image: "/src/assets/images/Gibril.jpg",
+      image: "/public/Gibril.jpg",
       socials: {
         facebook: "https://facebook.com/victor",
         website: "https://twitter.com/victor",
@@ -650,7 +677,7 @@ function TeamSection({ darkMode }) {
     {
       name: "Modou Lamin Ceesay",
       title: "Co Founder &  Lead Developer",
-      image: "/src/assets/images/Modou.jpg",
+      image: "/public/Modou.jpg",
       socials: {
         facebook: "https://www.facebook.com/lily.champion.58",
         website: "https://my-dev-portfolio-dun.vercel.app/",
